@@ -176,6 +176,7 @@
        var ctx = canvas.getContext("2d");
        var img = new Image();
        img.src = "ksuisbg.gif";
+       img.src="speaker_urusai.png";
        img.onload = function(){
            ctx.drawImage(img,0,0,300,300);
        };
@@ -188,8 +189,7 @@
     function btnAClick(e){
         active = true; 
         startTime = new Date(); 
-        $("#btnA").css("font-family","fantasy");
-        $("#btnA").css("background-color","lightgray");
+        
         
     }
 
@@ -206,6 +206,7 @@
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + m+"分"+s+"秒");
         
+        
     }
 
     function btnDClick(e){
@@ -213,10 +214,11 @@
         
         $("#btnA").css("font-family","fantasy");
         $("#btnA").css("background-color","lightgray");
-        if(e==2){
-            $("#btnB").css("font-family","fantasy");
-            $("#btnB").css("background-color","lightgray");
-        }
+        $("#btnB").css("font-family","IPA ゴシック");
+        $("#btnB").css("background-color","white");
+        $("#btnC").css("font-family","cursive");
+        $("#btnC").css("background-color","black");
+        
     }  
  
     // 繰り返し実行する処理
@@ -225,12 +227,13 @@
             etime = parseInt( (new Date() - startTime)/1000 );
             rest = period - etime;
             $("#time").html("経過時間： " + etime);
-            $("#remain").html("残り時間： " + rest); 
+            $("#remain").html("残り時間： " + rest+"秒"); 
             analog(rest);
         }
         if(rest<=0){
             active=false;
             alarm();
+
 
         }
     } 
